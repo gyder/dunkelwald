@@ -5,4 +5,4 @@ Du stehst auf einer Lichtung und fragst dich ob du weitergehen oder stehenbleibe
 
 [Weitergehen](weitergehen.md)
 
-[Stehenbleiben](stehenblieben.md)
+[Stehenbleiben](stehenbleiben.md)
