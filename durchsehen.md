@@ -1,4 +1,4 @@
-Du siehst hinter dem Gebüsch einen Tiger und Überlegst.
+Du siehst hinter dem Gebüsch einen Tiger und überlegst.
 
 [Dableiben](dableiben.md)
 
