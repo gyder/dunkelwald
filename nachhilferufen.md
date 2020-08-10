@@ -1,4 +1,4 @@
-Du rufst nach hilfe und die beiden Männer die dir gerade den Rücken zugedreht hatten drehten sich blitzschnell um.
-Mit gierigen Blicken rannten sie auf dich zu und brachten dich zu ihrem Stamm.
+Du rufst nach hilfe und die beiden Männer die dir gerade den Rücken zudrehen drehen sich blitzschnell um.
+Mit gierigen Blicken rennen sie auf dich zu und bringen dich zu ihrem Stamm.
 
-[Weiter](stammdermenschenesser.md)
+[Weiter](stammdermenschenfresser.md)
