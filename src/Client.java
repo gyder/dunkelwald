@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 public class Client implements Runnable {
     Server server;
@@ -9,13 +8,19 @@ public class Client implements Runnable {
 
     Client(Server server) {
         this.server = server;
-        this.panel = new GamePanel(server);
+        this.panel = new GamePanel(server, this);
     }
 
     @Override
     public void run() {
         JFrame f = new JFrame("Dunkelwald Client");
         f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        f.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                server.onClientExit(Client.this);
+            }
+        });
         f.add(panel);
         f.pack();
         f.setLocationRelativeTo(null);
@@ -28,13 +33,19 @@ public class Client implements Runnable {
 
     static class GamePanel extends JPanel {
 
-        public GamePanel(Server server) {
+        public GamePanel(Server server, Client client) {
             setBackground(Color.BLACK);
             setFocusable(true);
             addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent e) {
-                    server.onClientBackgroundChangeRequest(null, Color.BLUE);
+                    Color selectedColor = JColorChooser.showDialog(
+                            GamePanel.this,
+                            "Choose Background Color",
+                            getBackground());
+                    if (selectedColor != null) {
+                        server.onClientBackgroundChangeRequest(client, selectedColor);
+                    }
                 }
             });
         }

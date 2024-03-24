@@ -4,22 +4,27 @@ import java.util.List;
 
 public class Server implements Runnable {
 
+    public static void main(String[] args) {
+        System.out.println("Starting...");
+        Server server = new Server();
+        Thread.ofPlatform().name("Server").start(server);
+    }
+
     Color background = Color.BLACK;
     List<Client> clients = new ArrayList<>();
     @Override
     public void run() {
         System.out.println("Starting server...");
-        while (true) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                return;
-            }
-        }
     }
 
     void onClientEnter(Client client) {
         clients.add(client);
+        System.out.println(clients.size() + " clients are connected");
+    }
+
+    void onClientExit(Client client) {
+        clients.remove(client);
+        System.out.println(client + " has exited the game");
     }
 
     void fireNewBackgroundEvent() {
